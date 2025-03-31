@@ -20,7 +20,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    background-color: #777;
+    background-color: #999;
   }
   li {
     display: inline;

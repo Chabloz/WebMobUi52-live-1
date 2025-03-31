@@ -20,16 +20,24 @@
 </template>
 
 <style scoped>
-  input[type="number"] {
-    width: 100px;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-
+  input[type="number"] {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    flex: 1;
+  }
   abbr {
-    margin-left: 5px;
-    font-size: 16px;
+    margin-left: 0.2rem;
+    color: #333;
+    padding: 0 0.5rem;
+    min-width: 3rem;
+    font-size: 1.2rem;
   }
 </style>

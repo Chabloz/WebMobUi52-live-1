@@ -1,4 +1,3 @@
-export function roundToDecimalPlaces(nbDecimalPlaces, value) {
-
-  return Number(value).toFixed(nbDecimalPlaces);
+export function roundToDecimalPlaces(value, nbDecimalPlaces = 2) {
+  return parseFloat(value.toFixed(nbDecimalPlaces));
 }
