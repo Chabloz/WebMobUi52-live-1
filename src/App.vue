@@ -1,14 +1,17 @@
 <script setup>
   import TheHeader from '@/components/TheHeader.vue';
   import TheNav from '@/components/TheNav.vue';
-  import PageTemperature from '@/components/pages/PageTemperature.vue';
+  import { currentPage } from './stores/routes';
+
 </script>
 
 <template>
   <TheHeader>Converter App</TheHeader>
   <TheNav />
   <main>
-    <PageTemperature />
+    <!-- <PageTemperature v-if="anchor === 'temp'"/>
+    <PageByte v-if="anchor === 'byte'"/> -->
+    <component :is="currentPage" />
   </main>
 </template>
 

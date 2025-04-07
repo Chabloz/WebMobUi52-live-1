@@ -1,15 +1,35 @@
 <script setup>
+  import { onMounted, onUnmounted, ref } from 'vue';
+  import { anchor, routes } from '@/stores/routes';
+
+  function updateAnchor() {
+    anchor.value = window.location.hash.substring(1);
+  }
+
+  onMounted(() => {
+    window.addEventListener('hashchange', updateAnchor);
+    updateAnchor();
+  });
+
+  onUnmounted(() => {
+    window.removeEventListener('hashchange', updateAnchor);
+  });
 
 </script>
 
 <template>
   <ul>
-    <li>
-      <a href="#temp">Temperature</a>
+    <li v-for="route of routes">
+      <a :href="'#' + route.anchor" :class="anchor == route.anchor ? 'active' : ''">
+        {{ route.label }}
+      </a>
+    </li>
+    <!-- <li>
+      <a href="#temp" :class="anchor == 'temp' ? 'active' : ''">Temperature</a>
     </li>
     <li>
-      <a href="#byte">Byte & co.</a>
-    </li>
+      <a href="#byte" :class="anchor == 'byte' ? 'active' : ''">Byte</a>
+    </li> -->
   </ul>
 </template>
 
@@ -34,6 +54,9 @@
     display: block;
   }
   a:hover {
+    color: tomato;
+  }
+  .active {
     color: tomato;
   }
 </style>
